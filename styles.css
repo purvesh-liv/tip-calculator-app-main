@@ -150,10 +150,7 @@ body {
   color: var(--text-dark);
 }
 
-.tip-btn.active {
-  background: var(--accent);
-  color: var(--text-dark);
-}
+
 
 .custom-tip {
   width: 100%;
