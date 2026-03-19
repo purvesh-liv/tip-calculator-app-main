@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: hsl(185, 41%, 84%);
+  --card-bg: hsl(0, 0%, 100%);
+  --panel-bg: hsl(183, 100%, 15%);
+  --input-bg: hsl(189, 41%, 97%);
+  --text-dark: hsl(183, 100%, 15%);
+  --text-light: hsl(184, 14%, 56%);
+  --accent: hsl(172, 67%, 45%);
+  --accent-light: hsl(173, 61%, 77%);
+  --error: #e17457;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-dark);
+}
+
+.page {
+  width: 100%;
+  max-width: 950px;
+  padding: 2rem 1.5rem;
+}
+
+.logo {
+  text-align: center;
+  letter-spacing: 0.6rem;
+  color: #3d6666;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+}
+
+.logo span {
+  display: block;
+}
+
+.calculator {
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.left-panel {
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  color: #5e7a7d;
+  margin-bottom: 0.6rem;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.error-msg {
+  font-size: 0.85rem;
+  color: var(--error);
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ebbbd;
+  font-size: 1rem;
+}
+
+.input-wrapper input {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  background: var(--input-bg);
+  border-radius: 0.4rem;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: right;
+  color: var(--text-dark);
+}
+
+.input-wrapper input::placeholder,
+.custom-tip::placeholder {
+  color: #9ebbbd;
+}
+
+.input-wrapper input:focus,
+.custom-tip:focus {
+  border-color: var(--accent);
+}
+
+.input-wrapper.error input {
+  border-color: var(--error);
+}
+
+.tip-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.tip-btn,
+.custom-tip {
+  height: 3rem;
+  border-radius: 0.4rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.tip-btn {
+  border: none;
+  background: var(--panel-bg);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.tip-btn:hover {
+  background: var(--accent-light);
+  color: var(--text-dark);
+}
+
+.tip-btn.active {
+  background: var(--accent);
+  color: var(--text-dark);
+}
+
+.custom-tip {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  background: var(--input-bg);
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.right-panel {
+  background: var(--panel-bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.result-row h2 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.result-row p {
+  color: #7f9c9f;
+  font-size: 0.85rem;
+}
+
+.amount {
+  color: var(--accent);
+  font-size: 2.7rem;
+}
+
+.reset-btn {
+  margin-top: auto;
+  border: none;
+  background: var(--accent);
+  color: var(--text-dark);
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.9rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: var(--accent-light);
+}
+
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+  }
+
+  .page {
+    padding: 2.5rem 0 0;
+  }
+
+  .logo {
+    margin-bottom: 2rem;
+  }
+
+  .calculator {
+    grid-template-columns: 1fr;
+    border-radius: 1.5rem 1.5rem 0 0;
+    padding: 1.5rem;
+  }
+
+  .left-panel {
+    padding: 0.5rem;
+  }
+
+  .tip-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .amount {
+    font-size: 2rem;
+  }
+
+  .right-panel {
+    padding: 1.5rem;
+  }
+
+  .reset-btn {
+    margin-top: 1rem;
+  }
+}
